@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ProjetoFinalFilmes</string>
+    <string name="loginText">iniciar sessão</string>
+    <string name="createAccount">criar conta</string>
+    <string name="profilePicture"> <font color='#13547a'>| </font>fotografia de perfil</string>
+    <string name="accessData"> <font color='#13547a'>| </font>dados de acesso</string>
+    <string name="toWorld">para o mundo</string>
+    <string name="shareExperience"><font color='#13547a'>| </font>partilhe a sua experiência</string>
+    <string name="miradouros">miradouros</string>
+    <string name="perfectSintony"><font color='#13547a'>| </font>perfeita sintonia</string>
+    <string name="videos">vídeos</string>
+    <string name="subtitleVideo"><font color='#13547a'>| </font>respire natureza</string>
+    <string name="experiencias">experiências</string>
+    <string name="subTitleExperiencias"><font color='#13547a'>| </font>sinta-se vivo</string>
+    <string name="shareExperienceTitle">partilhar experiência</string>
+    <string name="sharExperienceSubtitle"><font color='#13547a'>| </font>escolher fotografias / vídeos</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
