@@ -1,14 +1,14 @@
-package com.example.projetofinalfilmes.ui.home;
+package com.example.projetofinalfilmes.ui.discover;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class DiscoverViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public DiscoverViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is home fragment");
     }

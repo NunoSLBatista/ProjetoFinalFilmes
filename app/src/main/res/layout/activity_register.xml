@@ -26,10 +26,11 @@
                 android:id="@+id/goBack"
                 android:layout_width="28dp"
                 android:layout_height="match_parent"
+                android:onClick="goBack"
                 android:paddingLeft="7dp"
                 android:paddingRight="7dp"
-                android:tint="#13547a"
-                android:src="@drawable/chevron_left" />
+                android:src="@drawable/chevron_left"
+                android:tint="#13547a" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -155,10 +156,11 @@
         android:layout_marginRight="30dp"
         android:background="@drawable/button_corner_radius"
         android:fontFamily="@font/montserrat"
-        android:textColor="@color/white"
+        android:onClick="createAccountEvent"
         android:stateListAnimator="@null"
         android:text="@string/createAccount"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 
 </LinearLayout>

@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.projetofinalfilmes"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -38,6 +38,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation 'com.yarolegovich:discrete-scrollview:1.4.9'
+
+    // Retrofit is used to receive data structures in JSON from the weather API (https://openweathermap.org/)
+    implementation 'com.squareup.retrofit2:retrofit:2.7.2'
+    // A Converter which uses Gson for serialization to and from JSON
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.2'
 
     implementation "com.squareup.picasso:picasso:2.5.2"
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
