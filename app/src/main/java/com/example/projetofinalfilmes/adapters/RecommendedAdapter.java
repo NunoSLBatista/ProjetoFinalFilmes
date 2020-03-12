@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,7 +16,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder> {
+public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.MovieHolder> {
 
     private Context context;
     private ArrayList<Movie> movieList;
@@ -28,7 +27,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
     }
 
 
-    public MovieAdapter(ArrayList<Movie> movieList, Context context, OnItemClickListener listener){
+    public RecommendedAdapter(ArrayList<Movie> movieList, Context context, OnItemClickListener listener){
         this.context = context;
         this.movieList = movieList;
         this.listener = listener;
@@ -39,7 +38,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
     public MovieHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         // Inflate the layout view you have created for the list rows here
-        View view = layoutInflater.inflate(R.layout.movie_item, parent, false);
+        View view = layoutInflater.inflate(R.layout.recommended_movie_item, parent, false);
         return new MovieHolder(view);
     }
 
@@ -53,7 +52,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
             }
         });
 
-        holder.titleMovieTextView.setText(movieList.get(position).getName());
+        int maxSize = 15;
+        if(movieList.get(position).getName().length() < 16){
+            maxSize = movieList.get(position).getName().length();
+        }
+
+        holder.titleMovieTextView.setText(movieList.get(position).getName().substring(0, maxSize));
         holder.posterMovieImageView.setClipToOutline(true);
         Picasso.with(context).load("https://image.tmdb.org/t/p/w500/" + movieList.get(position).getPosterUrl()).into(holder.posterMovieImageView);
     }
