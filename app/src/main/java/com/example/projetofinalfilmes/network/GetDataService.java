@@ -4,6 +4,7 @@ import com.example.projetofinalfilmes.models.GenreResult;
 import com.example.projetofinalfilmes.models.Movie;
 import com.example.projetofinalfilmes.models.SearchResult;
 import com.example.projetofinalfilmes.models.SearchResultSeries;
+import com.example.projetofinalfilmes.models.Serie;
 import com.example.projetofinalfilmes.models.SerieResult;
 import com.example.projetofinalfilmes.models.VideoResult;
 
@@ -38,6 +39,10 @@ public interface GetDataService {
 
     @GET("/3/movie/{id}")
     Call<Movie> getMovie(@Path(value = "id", encoded = true) String id, @Query("api_key") String apiKey, @Query("language") String language);
+
+    @GET("/3/tv/{id}")
+    Call<Serie> getSerie(@Path(value = "id", encoded = true) String id, @Query("api_key") String apiKey, @Query("language") String language);
+
 
     //?api_key=7c0d1ae5e4fa7e4a562859f06f4c7c3a&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28%2C%2012
 

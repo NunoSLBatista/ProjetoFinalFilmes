@@ -37,6 +37,9 @@ public class Serie implements Serializable {
     @SerializedName("genre_ids")
     private ArrayList<Integer> genreId;
 
+    @SerializedName("seasons")
+    private ArrayList<Season> seasonsArrayList;
+
     public String getId() {
         return id;
     }
@@ -115,5 +118,13 @@ public class Serie implements Serializable {
 
     public void setGenreId(ArrayList<Integer> genreId) {
         this.genreId = genreId;
+    }
+
+    public ArrayList<Season> getSeasonsArrayList() {
+        return seasonsArrayList;
+    }
+
+    public void setSeasonsArrayList(ArrayList<Season> seasonsArrayList) {
+        this.seasonsArrayList = seasonsArrayList;
     }
 }

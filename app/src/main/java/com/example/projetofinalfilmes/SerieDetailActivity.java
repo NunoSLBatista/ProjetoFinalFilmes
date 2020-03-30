@@ -13,16 +13,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import com.example.projetofinalfilmes.adapters.RecommendedAdapter;
 import com.example.projetofinalfilmes.adapters.RecommendedAdapterSeries;
+import com.example.projetofinalfilmes.adapters.SeasonAdapter;
 import com.example.projetofinalfilmes.adapters.SerieAdapter;
 import com.example.projetofinalfilmes.data.DatabaseHandler;
 import com.example.projetofinalfilmes.models.Genre;
 import com.example.projetofinalfilmes.models.Movie;
 import com.example.projetofinalfilmes.models.SearchResult;
 import com.example.projetofinalfilmes.models.SearchResultSeries;
+import com.example.projetofinalfilmes.models.Season;
 import com.example.projetofinalfilmes.models.Serie;
 import com.example.projetofinalfilmes.models.VideoResult;
 import com.example.projetofinalfilmes.network.GetDataService;
@@ -30,12 +33,13 @@ import com.example.projetofinalfilmes.network.RetrofitClientInstance;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.SimpleTimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SerieDetailActivity extends AppCompatActivity implements RecommendedAdapterSeries.OnItemClickListener {
+public class SerieDetailActivity extends AppCompatActivity implements RecommendedAdapterSeries.OnItemClickListener, SeasonAdapter.OnItemClickListener {
 
     Serie serie;
     ImageView backdropImage;
@@ -49,6 +53,7 @@ public class SerieDetailActivity extends AppCompatActivity implements Recommende
     TextView rating;
     TextView company;
     RecyclerView recyclerView;
+    RecyclerView seasonsList;
     LinearLayout playTrailer;
 
     private static String API_KEY = "7c0d1ae5e4fa7e4a562859f06f4c7c3a";
@@ -70,6 +75,7 @@ public class SerieDetailActivity extends AppCompatActivity implements Recommende
         rating = findViewById(R.id.ratingText);
         company = findViewById(R.id.company);
         playTrailer = findViewById(R.id.playTrailer);
+        seasonsList = findViewById(R.id.seasonList);
 
         dot1.setText("\u2022");
         dot2.setText("\u2022");
@@ -143,23 +149,30 @@ public class SerieDetailActivity extends AppCompatActivity implements Recommende
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false));
                 recyclerView.setAdapter(adapter);
 
-                /*
-                Call<Movie> call2 = retrofitInterface.getMovie(serie.getId() + "", API_KEY, "en-US");
 
-                call2.enqueue(new Callback<Movie>() {
+                Call<Serie> call2 = retrofitInterface.getSerie(serie.getId() + "", API_KEY, "en-US");
+
+                call2.enqueue(new Callback<Serie>() {
                     @Override
-                    public void onResponse(Call<Movie> call, Response<Movie> response) {
+                    public void onResponse(Call<Serie> call, Response<Serie> response) {
                         serie = response.body();
-                        duration.setText(String.valueOf(serie.getRuntime()) + "min");
                         rating.setText(serie.getRating().toString());
-                        company.setText(serie.getCompanyArrayList().get(0).getName());
+                        if(serie.getCompanyArrayList().get(0).getName() != null){
+                            company.setText(serie.getCompanyArrayList().get(0).getName());
+                        } else {
+                            company.setText("Unavailable");
+                        }
+
+                        SeasonAdapter adapter = new SeasonAdapter(serie.getSeasonsArrayList(), getApplicationContext(), SerieDetailActivity.this::onItemClick);
+                        seasonsList.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false));
+                        seasonsList.setAdapter(adapter);
                     }
 
                     @Override
-                    public void onFailure(Call<Movie> call, Throwable t) {
+                    public void onFailure(Call<Serie> call, Throwable t) {
 
                     }
-                }); */
+                });
 
             }
 
@@ -169,9 +182,18 @@ public class SerieDetailActivity extends AppCompatActivity implements Recommende
             }
         });
 
+
+
     }
     @Override
     public void onItemClick(Context context, Serie serie) {
+        Intent goDetail = new Intent(getApplicationContext(), SerieDetailActivity.class);
+        goDetail.putExtra("serie", serie);
+        startActivity(goDetail);
+    }
+
+    @Override
+    public void onItemClick(Context context, Season season) {
 
     }
 }
