@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#121212"
+    tools:context=".SerieDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="255dp">
+
+            <ImageView
+                android:id="@+id/backDropImage"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/posterImage"
+                android:layout_width="90dp"
+                android:layout_height="120dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/round_outline"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/deadpool" />
+
+            <TextView
+                android:id="@+id/movieTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toRightOf="@id/posterImage"
+                android:layout_alignBottom="@id/movieTitle"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="Devs"
+                android:textColor="@color/white"
+                android:textSize="19dp" />
+
+            <TextView
+                android:id="@+id/releaseDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="3dp"
+                android:layout_toRightOf="@id/posterImage"
+                android:fontFamily="@font/montserrat"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_linear_layout"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/star_icon" />
+
+                <TextView
+                    android:id="@+id/ratingText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="3dp"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:gravity="center_vertical"
+                    android:text="8.6"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/bullet1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/montserrat"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="#37477c"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:gravity="center_vertical"
+                    android:text="160 min"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/bullet2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/montserrat"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="#37477c"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:gravity="center_vertical"
+                    android:text="Disney"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/playTrailer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/button_corner_radius_white"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:gravity="center_vertical"
+                    android:text="Play Trailer"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:src="@drawable/play_icon" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="You may also like"
+            android:textColor="@color/white"
+            android:textSize="19sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/relatedMovies"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

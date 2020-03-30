@@ -3,6 +3,8 @@ package com.example.projetofinalfilmes.network;
 import com.example.projetofinalfilmes.models.GenreResult;
 import com.example.projetofinalfilmes.models.Movie;
 import com.example.projetofinalfilmes.models.SearchResult;
+import com.example.projetofinalfilmes.models.SearchResultSeries;
+import com.example.projetofinalfilmes.models.SerieResult;
 import com.example.projetofinalfilmes.models.VideoResult;
 
 import retrofit2.Call;
@@ -15,12 +17,21 @@ public interface GetDataService {
     @GET("/3/trending/{type}/week")
     Call<SearchResult> getTrending(@Path(value = "type", encoded = true) String type, @Query("api_key") String apiKey);
 
+    @GET("/3/tv/popular")
+    Call<SerieResult> getPopularSeries(@Query("api_key") String apiKey, @Query("language") String laneguage, @Query("page") String page);
+
+    @GET("/3/movie/upcoming")
+    Call<SearchResult> getUpcoming(@Query("language") String language, @Query("api_key") String apiKey, @Query("page") String page);
+
     @GET("/3/genre/movie/list")
     Call<GenreResult> getGenres(@Query("language") String language, @Query("api_key") String apiKey);
 
     @GET("3/discover/movie")
     Call<SearchResult> getRelated(@Query("language") String language, @Query("api_key") String apiKey,  @Query("include_adult") String includeAdult, @Query("include_video") String includeVideo,
                                   @Query("with_genres") String genres, @Query("sort_by") String sortBy, @Query("page") String page);
+
+    @GET("3/tv/{id}/similar")
+    Call<SearchResultSeries> getRelatedSeries(@Path(value = "id", encoded = true) String type, @Query("api_key") String apiKey, @Query("language") String laneguage, @Query("page") String page);
 
     @GET("/3/movie/{id}/videos")
     Call<VideoResult> getVideos(@Path(value = "id", encoded = true) String id, @Query("api_key") String apiKey, @Query("language") String language);
